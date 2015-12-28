@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>改变 src 动态请求 img</title>
+    <style type="text/css">
+
+        img {
+            background-color: #aaa;
+            border: 5px #666 dashed;
+            vertical-align: middle;
+            display: inline-block; /* ff img width */
+        }
+
+        .container img {
+            width: 480px;
+        }
+    </style>
+</head>
+<body>
+<div id="page">
+
+    <div id="header"></div>
+
+    <div id="content">
+        <h2>图片容器</h2>
+        <dl class="container">
+            <dt>默认图</dt>
+            <dd><img src="http://www.ivyedu.org/images/index/loading_wh.gif" alt="loading" id="default-img"></dd>
+            <dt class="downloaded">已下载</dt>
+            <dd class="not-downloaded">
+                <img src="http://topotato.com/image/rangers/red%20rengers.jpg" alt="power rangers"/>
+                <img src="http://www.wallpaperbase.com/wallpapers/movie/powerrangers/power_rangers_10.jpg"
+                     alt="power rangers"/>
+            </dd>
+            <dt>未下载</dt>
+            <dd>
+                <img data-src="http://www.deviantart.com/download/106737057/Ultraman_by_Cotygeek.jpg" alt="ultraman"/>
+                <img data-src="http://upload3.mop.com/upload3/2009/09/28/08/1254142771744.jpg" alt="ultraman"/>
+            </dd>
+        </dl>
+        <h2>目标容器</h2>
+        <dl class="container">
+            <dt>改变 src 属性</dt>
+            <dd>
+                <p><img src="" alt="target" id="target-img"></p>
+                <label for="select-src-attr">重写 img.src</label>
+                <select id="select-src-attr">
+                    <optgroup label="default">
+                        <option value="">blank</option>
+                        <option value="http://www.ivyedu.org/images/index/loading_wh.gif">loading</option>
+                    </optgroup>
+                    <optgroup label="downloaded">
+                        <option value="http://topotato.com/image/rangers/red%20rengers.jpg">power rangers - 1</option>
+                        <option value="http://www.wallpaperbase.com/wallpapers/movie/powerrangers/power_rangers_10.jpg">
+                            power rangers - 2
+                        </option>
+                    </optgroup>
+                    <optgroup label="not-downloaded">
+                        <option value="http://www.deviantart.com/download/106737057/Ultraman_by_Cotygeek.jpg">ultraman -
+                            1
+                        </option>
+                        <option value="http://upload3.mop.com/upload3/2009/09/28/08/1254142771744.jpg">ultraman - 2
+                        </option>
+                    </optgroup>
+                </select>
+                <label for="select-add-attr">img.removeAttribute 以增减 src</label>
+                <select id="select-add-attr">
+                    <optgroup label="default">
+                        <option value="">blank</option>
+                        <option value="http://www.ivyedu.org/images/index/loading_wh.gif">loading</option>
+                    </optgroup>
+                    <optgroup label="downloaded">
+                        <option value="http://topotato.com/image/rangers/red%20rengers.jpg">power rangers - 1</option>
+                        <option value="http://www.wallpaperbase.com/wallpapers/movie/powerrangers/power_rangers_10.jpg">
+                            power rangers - 2
+                        </option>
+                    </optgroup>
+                    <optgroup label="not-downloaded">
+                        <option value="http://www.deviantart.com/download/106737057/Ultraman_by_Cotygeek.jpg">ultraman -
+                            1
+                        </option>
+                        <option value="http://upload3.mop.com/upload3/2009/09/28/08/1254142771744.jpg">ultraman - 2
+                        </option>
+                    </optgroup>
+                </select>
+                <label for="select-first-loading">载入新图片时首先 loading</label>
+                <select id="select-first-loading">
+                    <optgroup label="downloaded">
+                        <option value="http://topotato.com/image/rangers/red%20rengers.jpg">power rangers - 1</option>
+                        <option value="http://www.wallpaperbase.com/wallpapers/movie/powerrangers/power_rangers_10.jpg">
+                            power rangers - 2
+                        </option>
+                    </optgroup>
+                    <optgroup label="not-downloaded">
+                        <option value="http://www.deviantart.com/download/106737057/Ultraman_by_Cotygeek.jpg">ultraman -
+                            1
+                        </option>
+                        <option value="http://upload3.mop.com/upload3/2009/09/28/08/1254142771744.jpg">ultraman - 2
+                        </option>
+                    </optgroup>
+                </select>
+            </dd>
+        </dl>
+    </div>
+
+    <div id="footer"></div>
+</div>
+<script type="text/javascript">
+    var get = function(id) {
+        return document.getElementById(id);
+    };
+
+    var selectSrcAttr = get("select-src-attr"),
+            selectAddAttr = get("select-add-attr"),
+            selectFirstLoading = get("select-first-loading"),
+            targetImg = get("target-img");
+
+    var DEFAULT_SRC = get("default-img").getAttribute("src"),
+            BLANK_SRC = "";
+
+    var targetSrc;
+
+    selectSrcAttr.onchange = function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        targetSrc = target.value;
+
+        targetImg.src = targetSrc;
+    };
+    selectAddAttr.onchange = function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        targetSrc = target.value;
+
+        targetImg.removeAttribute("src");
+        targetSrc && targetImg.setAttribute("src", targetSrc);
+    };
+    selectFirstLoading.onchange = function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        targetSrc = target.value;
+
+        var show = function() {
+            targetImg.src = targetSrc;
+        };
+
+        targetImg.src = DEFAULT_SRC;
+
+        var img = new Image();
+
+        // 将载入完毕事件处理函数定义在改变 img 的 src 之前，以免还没等 js 执行到这里，img 就载入完毕了
+        if (document.addEventListener) {
+            img.addEventListener("load", show, false);
+        } else {
+            img.onload = show;
+        }
+        img.src = targetSrc;
+
+        // 另外一种方案是使用 img.complete 来调用回调，这时可以先改变 img.src
+        img.src = targetSrc;
+        if (img.complete && img.width) {
+            show();
+        } else {
+            if (document.addEventListener) {
+                img.addEventListener("load", show, false);
+            } else {
+                img.onload = show;
+            }
+        }
+    };
+
+</script>
+</body>
+</html>

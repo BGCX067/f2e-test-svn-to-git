@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+    <meta charset="gbk">
+    <title>textarea maxLength</title>
+    <style type="text/css">
+         textarea {
+             outline: none;
+             resize: none;
+         }
+    </style>
+    <script type="text/javascript" src="../../TEMPLATE/assets/js/tbra-aio.source.js"></script>
+</head>
+<body>
+<div id="page">
+    <div id="header"></div>
+    <div id="content">
+        <form action="#">
+            <label for="textarea">限制 10 个字符输入</label>
+            <textarea id="textarea" cols="30" rows="10" maxLength="10"></textarea>
+        </form>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="../../TEMPLATE/assets/js/html5_form.js"></script>
+<script type="text/javascript">
+    !HTML5.form.supports["maxLength"] && HTML5.form.activate["maxLength"]("textarea");
+</script>
+</body>

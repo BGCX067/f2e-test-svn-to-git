@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+    <meta charset="gbk">
+    <title>object 标签中使用替换内容</title>
+</head>
+<body>
+<div id="page">
+    <div id="header"></div>
+    <div id="content">
+        <h2>我是 object</h2>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="800" height="600" id="myFlashContent">
+            <param name="movie" value="http://www.w3school.com.cn/i/helloworld.swf"/>
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="http://www.w3school.com.cn/i/helloworld.swf" width="800"
+                    height="600">
+                <!--<![endif]-->
+                alternative content
+                <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+        </object>
+        <h2>我是 embed</h2>
+        <embed src="http://www.w3school.com.cn/i/helloworld.swf">
+            alternative content
+        </embed>
+    </div>
+    <div id="footer"></div>
+</div>
+</body>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>使用负边距</title>
+
+    <style>
+        .outer {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 240px;
+            height: 140px;
+            border: 10px solid red;
+            z-index: 2;
+        }
+
+        .wrap {
+            border: 20px solid blue;
+            width: 300px;
+            margin-left: -100px;
+            _position: relative;
+            z-index: 1;
+        }
+
+        .inner {
+            height: 100px;
+            background: url("../img/yanzi_small.jpg") no-repeat 0 0;
+        }
+    </style>
+
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <div class="outer">
+            <div class="wrap">
+                <div class="inner">
+                    Content Here.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+</body>
+</html>

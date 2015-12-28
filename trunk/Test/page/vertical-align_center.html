@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>元素垂直居中</title>
+
+    <style>
+        #position-back .container-box {
+            display: table;
+            width: 220px;
+            height: 220px;
+            padding: 20px;
+            margin: 10px; /*FF 中 table 的 margin 上下都会算入，IE8 不会*/
+            border: 10px solid #00a;
+            text-align: center;
+            float: left;
+
+            *position: relative;
+            *display: block;
+        }
+
+        #position-back .target-wrap {
+            display: table-cell;
+            vertical-align: middle;
+
+            *position: absolute;
+            *display: block;
+            *top: 50%;
+            *left: 50%;
+        }
+
+        #position-back .target-box {
+            display: inline-block;
+            margin: 0 auto;
+            border: 10px solid #a00;
+            vertical-align: middle;
+
+            *position: relative;
+            *display: block;
+            *top: -50%;
+            *left: -50%;
+        }
+
+        #image-inline .container-box {
+            width: 220px;
+            height: 220px;
+            padding: 20px;
+            margin: 10px;
+            border: 10px solid #00a;
+            text-align: center;
+            float: left;
+        }
+
+        #image-inline .vertical-holder {
+            display: inline-block;
+            height: 100%;
+            width: 1px;
+            vertical-align: middle;
+
+            *display: inline;
+            *zoom: 1;
+        }
+
+        #image-inline .target-box {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 auto;
+
+            *display: inline;
+            *zoom: 1;
+        }
+    </style>
+
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <div id="position-back">
+            <ul>
+                <!--img 盒子-->
+                <li class="container-box">
+                    <a href="vertical-align_center.html#" class="target-wrap"><img class="target-box"
+                                                                                   src="../img/yanzi_small.jpg"
+                                                                                   alt="small"
+                                                                                   width="100" height="100"/></a>
+                </li>
+                <li class="container-box">
+                    <a href="vertical-align_center.html#" class="target-wrap"><img class="target-box"
+                                                                                   src="../img/yanzi_small.jpg"
+                                                                                   alt="small"
+                                                                                   width="100" height="200"/></a>
+                </li>
+                <li class="container-box">
+                    <a href="vertical-align_center.html#" class="target-wrap"><img class="target-box"
+                                                                                   src="../img/yanzi_small.jpg"
+                                                                                   alt="small"
+                                                                                   width="200" height="100"/></a>
+                </li>
+                <li class="container-box">
+                    <a href="vertical-align_center.html#" class="target-wrap"><img class="target-box"
+                                                                                   src="../img/yanzi_small.jpg"
+                                                                                   alt="small"
+                                                                                   width="200" height="200"/></a>
+                </li>
+                <!--block 盒子-->
+                <li class="container-box">
+                    <div class="target-wrap">
+                        <div class="target-box">
+                            第一行
+                        </div>
+                    </div>
+                </li>
+                <li class="container-box">
+                    <div class="target-wrap">
+                        <div class="target-box">
+                            第一行<br/>
+                            第二行
+                        </div>
+                    </div>
+                </li>
+                <li class="container-box">
+                    <div class="target-wrap">
+                        <div class="target-box">
+                            第一行<br/>
+                            第二行<br/>
+                            第三行
+                        </div>
+                    </div>
+                </li>
+                <li class="container-box">
+                    <div class="target-wrap">
+                        <div class="target-box">
+                            第一行<br/>
+                            第二行<br/>
+                            第三行<br/>
+                            第四行
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div id="image-inline">
+            <ul>
+                <!--img 盒子-->
+                <li class="container-box">
+                    <img src="../img/yanzi_small.jpg" alt="占位符" class="vertical-holder"/>
+                    <img class="target-box"
+                         src="../img/yanzi_small.jpg"
+                         alt="small"
+                         width="100" height="100"/>
+                </li>
+                <li class="container-box">
+                    <img src="../img/yanzi_small.jpg" alt="占位符" class="vertical-holder"/>
+                    <img class="target-box"
+                         src="../img/yanzi_small.jpg"
+                         alt="small"
+                         width="100" height="200"/>
+                </li>
+                <li class="container-box">
+                    <img src="../img/yanzi_small.jpg" alt="占位符" class="vertical-holder"/>
+                    <img class="target-box"
+                         src="../img/yanzi_small.jpg"
+                         alt="small"
+                         width="200" height="100"/>
+                </li>
+                <li class="container-box">
+                    <img src="../img/yanzi_small.jpg" alt="占位符" class="vertical-holder"/>
+                    <img class="target-box"
+                         src="../img/yanzi_small.jpg"
+                         alt="small"
+                         width="200" height="200"/>
+                </li>
+                <!--block 盒子-->
+                <li class="container-box">
+                    <span class="vertical-holder"></span>
+                    <div class="target-box">
+                        第一行
+                    </div>
+
+                </li>
+                <li class="container-box">
+                    <span class="vertical-holder"></span>
+                    <div class="target-box">
+                        第一行<br/>
+                        第二行
+                    </div>
+
+                </li>
+                <li class="container-box">
+                    <span class="vertical-holder"></span>
+                    <div class="target-box">
+                        第一行<br/>
+                        第二行<br/>
+                        第三行
+                    </div>
+
+                </li>
+                <li class="container-box">
+                    <span class="vertical-holder"></span>
+                    <div class="target-box">
+                        第一行<br/>
+                        第二行<br/>
+                        第三行<br/>
+                        第四行
+                    </div>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+</body>
+</html>

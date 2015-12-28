@@ -1,0 +1,57 @@
+/* Copyright (c) 2010, pushiming@gmail.com. All rights reserved. */
+
+/**
+ * Particular style of {file}.
+ *
+ * @author      Digu <pushiming@gmail.com>
+ * @version     1.0.0
+ */
+
+/**
+ * Basic styles which overwrites the super style.
+ */
+
+a {
+    color: #000; /* particular explanation if needed */
+}
+
+a:hover {
+    color: #666;
+}
+
+/**
+ * Sprites.
+ */
+
+#header {
+    background-image: url(http://pushiming.com/icon.png);
+}
+
+/**
+ * Common styles.
+ */
+
+.img-list li,
+.txt-list li {
+    float: left;
+}
+
+/**
+ * Particular styles for each module.
+ */
+
+/* Hot topics */
+#hot-topic h1 {
+    font-size: 20px;
+}
+
+#hot-topic img {
+    display: block;
+}
+
+/* Latest news */
+#latest-news p {
+    margin: 10px;
+}
+
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<head>
+    <meta charset="gbk">
+    <title>循环中缓存 length 将提高性能</title>
+</head>
+<body>
+<div id="page">
+    <div id="header"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
+</div>
+<script>
+
+    var bigArray = [], i, l;
+    for (i = 0; i < 1000000; i++) {
+        bigArray.push(i);
+    }
+
+    var aStart = (new Date()).getTime();
+    for (i = 0; i < bigArray.length; i++) {
+        bigArray[i] = i;
+    }
+    var aEnd = (new Date()).getTime();
+
+    var bStart = (new Date()).getTime();
+    for (i = 0,l = bigArray.length; i < l; i++) {
+        bigArray[i] = i;
+    }
+    var bEnd = (new Date()).getTime();
+
+    document.write("循环一百万次的情况下<br/>" + "没有缓存 length：" + (aEnd - aStart) + "<br/>缓存了 length：" + (bEnd - bStart));
+
+</script>
+
+<!--[if !IE]><!-->
+<script>
+
+    var bigArray = [], i, l;
+    for (i = 0; i < 10000000; i++) {
+        bigArray.push(i);
+    }
+
+    var aStart = (new Date()).getTime();
+    for (i = 0; i < bigArray.length; i++) {
+        bigArray[i] = i;
+    }
+    var aEnd = (new Date()).getTime();
+
+    var bStart = (new Date()).getTime();
+    for (i = 0,l = bigArray.length; i < l; i++) {
+        bigArray[i] = i;
+    }
+    var bEnd = (new Date()).getTime();
+
+    document.write("<br/>循环一千万次的情况下<br/>" + "没有缓存 length：" + (aEnd - aStart) + "<br/>缓存了 length：" + (bEnd - bStart));
+
+</script>
+<!--<![endif]-->
+</body>

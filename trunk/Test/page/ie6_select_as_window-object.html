@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>IE6 中 select 等元素始终处于顶层</title>
+
+    <style>
+        body {
+            background-color: #adf;
+        }
+
+        #content {
+            margin-top: 100px;
+            position: relative;
+        }
+
+        #overlay {
+            width: 500px;
+            height: 300px;
+            color: #fff;
+            background-color: #520;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            z-index: 10;
+        }
+
+        .select-mask {
+            z-index: 1;
+            background-color: transparent;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 0);
+            position: absolute;
+            width: 9999px;
+            height: 9999px;
+            left: -5000px;
+            bottom: -5000px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="page">
+
+    <div id="header"></div>
+
+    <div id="content">
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <p>
+            <select>
+                <option value="1">fuck</option>
+            </select>
+        </p>
+        <div id="overlay">
+            <p>im the poor overlay positioned on the left top!!! ah!!!!</p>
+        </div>
+        <!--[if IE 6]>
+        <iframe src="#" frameborder="0" class="select-mask"></iframe>
+        <![endif]-->
+    </div>
+
+    <div id="footer"></div>
+</div>
+
+</body>
+</html>

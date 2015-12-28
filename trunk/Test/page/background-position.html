@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>背景定位</title>
+
+    <style>
+        #content div {
+            margin: 20px;
+            padding: 20px;
+            font-size: 25px;
+            color: #fff;
+            border: 10px solid #666;
+            width: 400px;
+            height: 534px;
+            background: #000 no-repeat;
+        }
+
+        div.small {
+            background-image: url("../img/yanzi_small.jpg");
+        }
+
+        div.big {
+            background-image: url("../img/yanzi_big.jpg");
+        }
+
+        div.l-t {
+            background-position: left top;
+        }
+
+        div.r-b {
+            background-position: right bottom;
+        }
+
+        div.c-c {
+            background-position: center center;
+        }
+
+        div.per-100-100 {
+            background-position: 100% 100%;
+        }
+
+        div.per-50-50 {
+            background-position: 50% 50%;
+        }
+
+        div.per-25-25 {
+            background-position: 25% 25%;
+        }
+
+        div.abs-100-100 {
+            background-position: 100px 100px;
+        }
+
+        div.abs-n100-n100 {
+            background-position: -100px -100px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <div class="small">nothing</div>
+        <div class="small l-t">left top</div>
+        <div class="small r-b">right bottom</div>
+        <div class="small c-c">center center</div>
+        <div class="small per-100-100">100% * 2</div>
+        <div class="small per-50-50">50% * 2</div>
+        <div class="small per-25-25">25% * 2</div>
+        <div class="small abs-100-100">100px * 2</div>
+        <div class="small abs-n100-n100">-100px * 2</div>
+        <div class="big">nothing</div>
+        <div class="big l-t">left top</div>
+        <div class="big r-b">right bottom</div>
+        <div class="big c-c">center center</div>
+        <div class="big per-100-100">100% * 2</div>
+        <div class="big per-50-50">50% * 2</div>
+        <div class="big per-25-25">25% * 2</div>
+        <div class="big abs-100-100">100px * 2</div>
+        <div class="big abs-n100-n100">-100px * 2</div>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+</body>
+</html>

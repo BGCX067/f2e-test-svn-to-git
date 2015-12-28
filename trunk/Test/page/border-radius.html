@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>边框圆角</title>
+
+    <style>
+        .section {
+            margin: 10px;
+            padding: 10px;
+            border-width: 5px;
+            border-style: solid;
+            -moz-border-color: #000 #222 #444 #666 #888;
+            border-color: #000 #222 #444 #666 #888;
+            -moz-box-shadow: 5px 5px 2px #444;
+            -webkit-box-shadow: 5px 5px 2px #444;
+            box-shadow: 5px 5px 2px #444;
+            display: inline-block;
+        }
+
+        .square,
+        .rectangle {
+            position: relative;
+            margin: 10px;
+            border: 1px dashed #666;
+        }
+
+        .square {
+            width: 301px;
+            height: 301px;
+        }
+
+        .rectangle {
+            width: 401px;
+            height: 201px;
+        }
+
+        .l-t-ref-line,
+        .r-b-ref-line {
+            position: absolute;
+            border: 1px dashed #666;
+        }
+
+        .l-t-ref-line {
+            border-width: 0 1px 1px 0;
+            left: 0;
+            top: 0;
+        }
+
+        .r-b-ref-line {
+            border-width: 1px 0 0 1px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .square .l-t-ref-line,
+        .square .r-b-ref-line {
+            width: 150px;
+            height: 150px;
+        }
+
+        .rectangle .l-t-ref-line,
+        .rectangle .r-b-ref-line {
+            width: 200px;
+            height: 100px;
+        }
+
+        .info {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+
+        #radius-1 .square {
+            -moz-border-radius: 150px;
+            -webkit-border-radius: 150px;
+            border-radius: 150px;
+        }
+
+        #radius-1 .rectangle {
+            -moz-border-radius: 100px 200px 200px 0;
+            -webkit-border-radius: 100px 200px 200px 0;
+            border-radius: 100px 200px 200px 0;
+        }
+
+        #radius-2 .square {
+            -moz-border-radius: 300px 0 150px 150px/150px 0 300px 150px;
+            -webkit-border-radius: 300px 0 150px 150px/150px 0 300px 150px;
+            border-radius: 300px 0 150px 150px/150px 0 300px 150px;
+        }
+
+        #radius-2 .rectangle {
+            -moz-border-radius: 200px/100px;
+            -webkit-border-radius: 200px/100px;
+            border-radius: 200px/100px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <div class="section" id="radius-1">
+            <div class="square">
+                <div class="l-t-ref-line"></div>
+                <div class="r-b-ref-line"></div>
+                <div class="info">
+                    <p>301 * 301</p>
+
+                    <p>border-radius: 150px;</p>
+                </div>
+            </div>
+            <div class="rectangle">
+                <div class="l-t-ref-line"></div>
+                <div class="r-b-ref-line"></div>
+                <div class="info">
+                    <p>401 * 201</p>
+
+                    <p>border-radius: 100px 200px 200px 0</p>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="radius-2">
+            <div class="square">
+                <div class="l-t-ref-line"></div>
+                <div class="r-b-ref-line"></div>
+                <div class="info">
+                    <p>301 * 301</p>
+
+                    <p>border-radius: 300px 0 150px 150px/150px 0 300px 150px</p>
+                </div>
+            </div>
+            <div class="rectangle">
+                <div class="l-t-ref-line"></div>
+                <div class="r-b-ref-line"></div>
+                <div class="info">
+                    <p>401 * 201</p>
+
+                    <p>border-radius: 200px/100px</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+</body>
+</html>

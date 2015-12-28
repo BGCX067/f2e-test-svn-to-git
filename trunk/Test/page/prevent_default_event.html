@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>阻止元素对事件的默认响应</title>
+
+    <style>
+    </style>
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <ul>
+            <li>
+                <a href="http://www.google.com" id="a-1">单纯用 return false</a>
+            </li>
+            <li>
+                <a href="http://www.google.com" id="a-2">使用 event 对象的 preventDefault</a>
+            </li>
+            <li>
+                <a href="http://www.google.com" id="a-3">使用 event 对象的 returnValue</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+<script type="text/javascript">
+    function handle1(event) {
+		alert("1 clicked!");
+		return false;
+	}
+
+    function handle2(event) {
+		alert("2 clicked!");
+		var e = event || window.event;
+		if (e.preventDefault) {
+			e.preventDefault();
+		}
+	}
+
+    function handle3(event) {
+		alert("3 clicked!");
+		var e = event || window.event;
+		if (!e.preventDefault) {
+			e.returnValue = false;
+		}
+	}
+
+	document.getElementById("a-1").onclick = handle1;
+	document.getElementById("a-2").onclick = handle2;
+	document.getElementById("a-3").onclick = handle3;
+</script>
+</body>
+</html>

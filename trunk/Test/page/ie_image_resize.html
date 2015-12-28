@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>IE 图片缩放优化</title>
+
+    <style>
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+    </style>
+
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <table>
+            <caption>图片缩放示例</caption>
+            <thead>
+            <tr>
+                <th>大图片缩小</th>
+                <th>小图片放大</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <img src="../img/yanzi_big.jpg" alt="big" width="400"/>
+                </td>
+                <td>
+                    <img src="../img/yanzi_small.jpg" alt="small" width="400"/>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+</body>
+</html>

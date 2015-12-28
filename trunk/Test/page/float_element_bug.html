@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <title>浮动元素 bug</title>
+
+    <style>
+        #out {
+            background: #333;
+            margin: 50px;
+            padding: 50px;
+            overflow: auto;
+            _zoom: 1;
+        }
+
+        #in {
+            background: #ddd;
+            margin: 50px;
+            padding: 50px;
+            width: 500px;
+            height: 200px;
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+<div id="page">
+
+    <div id="header">
+    </div>
+
+    <div id="content">
+        <div id="out">
+			<div id="in">hello
+			</div>
+		</div>
+    </div>
+
+    <div id="footer">
+    </div>
+</div>
+
+</body>
+</html>

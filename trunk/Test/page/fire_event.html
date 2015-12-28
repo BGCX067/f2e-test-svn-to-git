@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+    <meta charset="gbk">
+    <title>手动触发事件</title>
+</head>
+<body>
+<div id="header"></div>
+<div id="content">
+    <p>
+        <button id="btn1">button 1</button>
+    </p>
+    <p>
+        <button id="btn2">button 2</button>
+    </p>
+    <p id="console"></p>
+</div>
+<div id="footer"></div>
+<script type="text/javascript">
+    var btn1 = document.getElementById("btn1"),
+            btn2 = document.getElementById("btn2"),
+            console = document.getElementById("console");
+
+    btn1.onclick = function() {
+        alert(this.id + ".onclick fired!");
+    };
+
+    document.addEventListener && btn1.addEventListener("click", function() {
+        alert(this.id + ".addEventListener click 1 fired!");
+    }, false);
+    document.addEventListener && btn1.addEventListener("click", function() {
+        alert(this.id + ".addEventListener click 2 fired!");
+    }, false);
+
+    document.attachEvent && btn1.attachEvent("onclick", function() {
+        (function() {
+            alert(this.id + ".attachEvent onclick 1 fired!");
+        }).apply(btn1);
+    });
+    document.attachEvent && btn1.attachEvent("onclick", function() {
+        (function() {
+            alert(this.id + ".attachEvent onclick 2 fired!");
+        }).apply(btn1);
+    });
+
+    btn2.onclick = function() {
+        console.innerHTML += "call btn1.click()<br>";
+        btn1.click && btn1.click();
+        console.innerHTML += "call btn1.onclick()<br>";
+        btn1.onclick && btn1.onclick();
+        console.innerHTML += "call btn1.fireEvent('onclick')<br>";
+        btn1.fireEvent && btn1.fireEvent("onclick");
+    };
+
+</script>
+</body>

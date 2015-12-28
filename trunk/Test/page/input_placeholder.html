@@ -1,0 +1,27 @@
+<!doctype html>
+<head>
+    <meta charset="gbk">
+    <title>input 占位符</title>
+    <style type="text/css">
+        input.placeholder {
+            color: #999;
+        }
+    </style>
+    <script type="text/javascript" src="../../TEMPLATE/assets/js/tbra-aio.source.js"></script>
+</head>
+<body>
+<div id="page">
+    <div id="header"></div>
+    <div id="content">
+        <form action="#">
+            <input type="text" placeholder="请输入字符" id="input-tip" value="已经存在的值"/><label
+                for="input-tip">左边用来测试</label>
+        </form>
+    </div>
+    <div id="footer"></div>
+</div>
+<script type="text/javascript" src="../../TEMPLATE/assets/js/html5_form.js"></script>
+<script type="text/javascript">
+    !HTML5.form.supports["placeholder"] && HTML5.form.activate["placeholder"]("input-tip");
+</script>
+</body>
